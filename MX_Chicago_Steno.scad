@@ -307,7 +307,7 @@ module keycap(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false
 $fn = fn;
 
 module choc_stem(draftAng = 5) {
-  stemHeight = 3.1;
+  stemHeight = 3.87;
   dia = .15;
   wids = 1.2/2;
   lens = 2.9/2;
@@ -321,8 +321,8 @@ module choc_stem(draftAng = 5) {
       }
 
     //cuts
-      translate([3.9,0])cylinder(d1=7+sin(draftAng)*stemHeight, d2=7,3.5, center = true, $fn = 64);
-      translate([-3.9,0])cylinder(d1=7+sin(draftAng)*stemHeight,d2=7,3.5, center = true, $fn = 64);
+      translate([3.9,0])cylinder(d1=7+sin(draftAng)*stemHeight, d2=7,stemHeight, center = true, $fn = 64);
+      translate([-3.9,0])cylinder(d1=7+sin(draftAng)*stemHeight,d2=7,stemHeight, center = true, $fn = 64);
     }
   }
 
