@@ -16,6 +16,7 @@ keycap(
   Stem   = true, //tusn on shell and stems
   StemRot = 0, //change stem orientation by deg
   Dish   = true, //turn on dish cut
+  Shell = true,
   Stab   = 0,
   visualizeDish = true, // turn on debug visual of Dish
   crossSection  = false, // center cut to check internal
@@ -238,7 +239,7 @@ function StemRadius(t, keyID) = pow(t/stemLayers,3)*3 + (1-pow(t/stemLayers, 3))
 
 
 ///----- KEY Builder Module
-module keycap(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false, Dish = true, Stem = false, StemRot = 0, homeDot = false, Stab = 0, Legends = false) {
+module keycap(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false, Dish = true, Shell = false, Stem = false, StemRot = 0, homeDot = false, Stab = 0, Legends = false) {
 
   //Set Parameters for dish shape
   FrontPath = quantize_trajectories(FrontTrajectory(keyID), steps = stepsize, loop=false);
@@ -258,7 +259,7 @@ module keycap(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false
         skin([for (i=[0:layers-1]) transform(translation(CapTranslation(i, keyID)) * rotation(CapRotation(i, keyID)), elliptical_rectangle(CapTransform(i, keyID), b = CapRoundness(i,keyID),fn=fn))]); //outer shell
 
         //Cut inner shell
-        if(Stem == true){
+        if(Shell == true){
           translate([0,0,-.001])skin([for (i=[0:layers-1]) transform(translation(InnerTranslation(i, keyID)) * rotation(CapRotation(i, keyID)), elliptical_rectangle(InnerTransform(i, keyID), b = CapRoundness(i,keyID),fn=fn))]);
         }
       }
