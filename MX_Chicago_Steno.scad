@@ -73,10 +73,10 @@ keyParameters = //keyParameters[KeyID][ParameterID]
 
 dishParameters = //dishParameter[keyID][ParameterID]
 [
-//FFwd1 FFwd2 FPit1 FPit2  DshDep DshHDif FArcIn FArcFn FArcEx     BFwd1 BFwd2 BPit1 BPit2  BArcIn BArcFn BArcEx
+//FFwd1 FFwd2    FPit1 FPit2  DshDep DshHDif FArcIn FArcFn FArcEx     BFwd1 BFwd2 BPit1 BPit2  BArcIn BArcFn BArcEx
   //Column 0
-  [ 5.4,    4.1,   17,   -60,     8,    2.2,     13.0,    17.5,     2,    5.4,   4.1,   2,  -30,  13.0,    15.5,    2], //Chicago Steno R2/R4
-  [ 5.4,    4.1,    5,   -50,     8,    2.2,     12.5,    15.5,     2,    5.4,   4.1,   5,  -50,  12.5,    15.5,    2], //Chicago Steno R3 flat
+  [ 5.4,    4.1,   17,   -60,     8,    2.2,   13.0,  17.5,   2,      5.4,   4.1,   2,  -30,  13.0,    15.5,    2], //Chicago Steno R2/R4
+  [ 5.4,    4.1,    5,   -50,     8,    2.2,   12.5,  15.5,   2,      5.4,   4.1,   5,  -50,  12.5,    15.5,    2], //Chicago Steno R3 flat
 //  Later //1.25
 //  [ 4.5,    4,    7,  -40,      8,    1.8,   17,    20,     2,      4.5,    4,    2,   -35,   17,    20,     2], //Chicago Steno R2/R4
 //  [ 4.5,    4,    5,  -40,      8,    1.8,   17,    20,     2,      4.5,    4,    5,   -40,   17,    20,     2], //Chicago Steno R3
