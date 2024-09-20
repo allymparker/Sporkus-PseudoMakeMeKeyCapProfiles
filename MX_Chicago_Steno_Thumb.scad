@@ -460,7 +460,7 @@ module cherry_stem(depth, slop) {
 
 
 module choc_stem(draftAng = 5) {
-  stemHeight = 3.1;
+  stemHeight = 3.85;
   dia = .15;
   wids = 1.2/2;
   lens = 2.9/2;
@@ -474,8 +474,8 @@ module choc_stem(draftAng = 5) {
       }
 
     //cuts
-      translate([3.9,0])cylinder(d1=7+sin(draftAng)*stemHeight, d2=7,3.5, center = true, $fn = 64);
-      translate([-3.9,0])cylinder(d1=7+sin(draftAng)*stemHeight,d2=7,3.5, center = true, $fn = 64);
+      translate([3.9,0])cylinder(d1=7+sin(draftAng)*stemHeight, d2=7,stemHeight, center = true, $fn = 64);
+      translate([-3.9,0])cylinder(d1=7+sin(draftAng)*stemHeight,d2=7,stemHeight, center = true, $fn = 64);
     }
   }
 
