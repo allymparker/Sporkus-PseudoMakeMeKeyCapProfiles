@@ -16,7 +16,7 @@ mirror([1,0,0])keycap(
   StemRot = 0,//change stem orientation by deg
   Dish    = true, //turn on dish cut
   Stab    = 0,
-  visualizeDish = false, // turn on debug visual of Dish
+  visualizeDish = true, // turn on debug visual of Dish
   crossSection  = false, // center cut to check internal
   homeDot = false, //turn on homedots
   Legends = false
@@ -46,83 +46,22 @@ draftAngle = 0; //degree  note:Stem Only
 keyParameters = //keyParameters[KeyID][ParameterID]
 [
 //  BotWid, BotLen, TWDif, TLDif, keyh, WSft, LSft  XSkew, YSkew, ZSkew, WEx, LEx, CapR0i, CapR0f, CapR1i, CapR1f, CapREx, StemEx
-    //Column 0
-    //Levee: Chicago in choc Dimension for ref
-    [17.20,  16.00,   5.6, 	   5,  5.0,    0,   .0,     5,    -0,    -0,   2, 2.5,    .10,      2,     .10,      3,     2,       2], //Levee Steno R2/R4
-    [17.20,  16.00,   5.6, 	   5,  4.6,    0,   .0,     0,    -0,    -0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //Levee Steno R3
     [18.00,  18.00,   5.6, 	   5,  5.0,    0,   .0,     0,    -0,    -0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //Chicago Steno Thumb MX
-    //Thumb
-    [17.20,  16.00,  4.25, 	3.25,  5.0,  -.5,  0.0,    -3,    -3,    -0,   2,   2,    .10,      2,     .10,      2,     2,       2], //Thumb 1
-    [15.65,  26.4,   5.5, 	3.25,  4.9,  -.5,  0.0,    -3,    -2,    -2,   2,   2,     .3,      2,      .3,    2.5,     2,       2], //Thumb 1.5
-    [15.65,  35.8,  4.25, 	3.25,  4.9, -.25,  0.0,    -2.5,    -4,    -2,   2,   3,     .3,      2,      .3,    2.5,     2,       2], //Thumb 2.0
-    //1.25 5
-    [21.3,   15.60,  5.6, 	   5,  4.5,    0,   .0,     5,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       2], //Chicago Steno R2/R4 1.25u
-    [21.4,   15.60,  5.6, 	   5,  4.5,    0,   .0,     0,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       2], //Chicago Steno R3 1.25u
-    //1.5 7
-    [26.15,  15.60,   5.6, 	   5,  4.5,    0,   .0,     5,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       2], //Chicago Steno R2/R4 1.5
-    [26.15,  15.60,   5.6, 	   5,  4.5,    0,   .0,     0,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       2], //Chicago Steno R3 1.5u
-    //1.75 9
-    [30.90,  15.60,   5.6, 	   5,  4.5,    0,   .0,     5,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       2], //Chicago Steno R2/R4 1.5
-    [30.90,  15.60,   5.6, 	   5,  4.5,    0,   .0,     0,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       2], //Chicago Steno R3 1.5u
-    // Ergo shits
-    [18.75,  18.75,   5.6, 	   5,    8,    0,   .25,     0,    -0,    -0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //highpro 19.05 R2|4
-    [17.20,  16.00,   5.6, 	   5,  4.7,    0,   .0,      3,    -0,    -0,   2, 2.5,    .10,      2,     .10,      3,     2,       2], //Chicago Steno R2 ALT
-    [17.20,  16.00,   5.6, 	   5,  5.5,    0,   .0,      7,    -0,    -0,   2, 2.5,    .10,      2,     .10,      3,     2,       2], //Chicago Steno R1 Steap
-    [17.20,  16.00,   5.6, 	   5,  7.0,    0,   .0,     10,    -0,    -0,   2, 2.5,    .10,      2,     .10,      3,     2,       2], //Chicago Steno R1 mild with alt R2
-
+    [18.00,  27.00,   5.6, 	   5,  5.0,    0,   .0,     0,    -0,    -0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //Chicago Steno Thumb MX 1.5
 ];
 
 dishParameters = //dishParameter[keyID][ParameterID]
 [
 //FFwd1 FFwd2 FPit1 FPit2  DshDep DshHDif FArcIn FArcFn FArcEx     BFwd1 BFwd2 BPit1 BPit2  BArcIn BArcFn BArcEx FTani FTanf BTani BTanf TanEX PhiInit PhiFin
-  //Column 0
-  [ 4.5,    4,    7,  -50,      7,    1.7,   11,    17,     2,      4.5,    4,    2,   -35,   11,    15,     2,     3,  4.5,    3,  4.5,   2, 203, 210], //Chicago Steno R2/R4
-  [ 4.5,    4,    5,  -40,      7,    1.7,   11,    15,     2,      4.5,    4,    5,   -40,   11,    15,     2,     4,    5,    4,    5,   2, 200, 210], //Chicago Steno R3 flat
   [ 5.4,  4.1,    5,  -40,      8,    2.2, 12.5,  15.5,     2,      5.4,  4.1,    5,   -40, 12.5,  15.5,     2,     4,    5,    4,    5,   2, 200, 210], //Chicago Steno Thumb MX
-
-  [   5,  5.5,    0,  -40,      7,    1.7,   16,    18,     2,       5.5,  3.5,    5,   -50,   16,    18,     2,     5,   3.75,    2,    3.75,   2, 199, 210], //T1
-  [  10,  4.5,    0,  -40,      7,    1.7,   16,    15,     2,        10,  3.5,    5,   -50,   16,    18,     2,     3,   3.75,    .75,    3.75,   2, 200, 210], //1.5u
-  [  14.5, 4.5,   4,  -40,      7,    1.7,   16,    18,     2,      14.5,  4.5,    2,   -35,   16,    23,     2,     3,   3.75,    .75,    3.75,   2, 200, 210], //2.0u
-  //1.25
-  [ 4.5,    4,    7,  -40,      8,    1.8,   15,    20,     2,      4.5,    4,    2,   -35,   15,    20,     2,     3,    5,    7,    5,   2, 200, 210], //Chicago Steno R2/R4
-  [ 4.5,    4,    5,  -40,      8,    1.8,   15,    20,     2,      4.5,    4,    5,   -40,   15,    20,     2,     3,    5,    7,    5,   2, 200, 210], //Chicago Steno R3
-  //1.5
-  [ 4.5,    4,    7,  -40,      8,    1.8,   19,    25,     2,      4.5,    4,    2,   -35,   19,    25,     2], //Chicago Steno R2/R4
-  [ 4.5,    4,    5,  -40,      8,    1.8,   19,    25,     2,      4.5,    4,    5,   -40,   19,    25,     2], //Chicago Steno R3
-  //1.75
-  [ 4.5,    4,    7,  -40,      8,    1.8,   22.5,  27,     2,      4.5,    4,    2,   -35,   22.5,  27,     2], //Chicago Steno R2/R4
-  [ 4.5,    4,    5,  -40,      8,    1.8,   22.5,  27,     2,      4.5,    4,    5,   -40,   22.5,  27,     2], //Chicago Steno R3
-
-
-  [   5,    5,    5,  -40,      7,    1.7,   11,    15,     2,        5,    5,    5,   -40,   11,    15,     2], //Chicago Steno R3 flat
-  [ 4.5,    4,    7,  -50,      7,    1.7,   11,    17,     2,      4.5,    4,    2,   -35,   11,    15,     2], //Chicago Steno R1
-  [ 4.5,    4,    7,  -50,      7,    1.7,   11,    17,     2,      4.5,    4,    2,   -35,   11,    15,     2], //Chicago Steno R1
-  [ 4.5,    4,    7,  -50,      7,    1.7,   11,    17,     2,      4.5,    4,    2,   -35,   11,    15,     2], //Chicago Steno R1
-
+  [ 9.4,  8.1,    5,  -40,      8,    2.2, 12.5,  15.5,     2,      9.4,  8.1,    5,   -40, 12.5,  15.5,     2,     4,    5,    4,    5,   2, 200, 210],//Chicago Steno Thumb MX 1.5
 ];
 
 SecondaryDishParam =
 [
 //FFwd1 FFwd2 FPit1 FPit2  DshDep DshHDif FArcIn FArcFn FArcEx     BFwd1 BFwd2 BPit1 BPit2  BArcIn BArcFn BArcEx FTani FTanf BTani BTanf TanEX PhiInit PhiFin
-  [   6,  3.5,    7,  -50,      3,      2,    8,     8,     2,          5,    5,    5,    15,   10,   20,     2], //Chicago Steno R2/R4
-  [   6,  3.5,    7,  -50,      3,    2.5,    8,    20,     3,          2,  4.2,    8,     0,    8,    8,     3], //Chicago Steno R3 flat
   [ 6.9,  3.6,    7,  -50,      4,    2.5,  9.5,  20.5,     3,        2.9,  4.3,    8,     0,  9.5,  8.5,     3], //Chicago Steno Thumb MX
-  [   6,  3.5,    7,  -50,      3,    2.5,    8,    20,     3,          2,  4.2,    8,     0,    8,    8,     3], //Chicago Steno R3 chord
-
-  [   6,  3.5,    7,  -50,      3,      2,    8,     8,     2,          5,    5,    5,    15,   10,    20,     2], //Levee Steno R2/R4
-  [   6,  3.5,    7,  -50,      5,    1.0,   16,    23,     2,          6,  3.5,    7,   -50,   16,    23,     2], //Levee Steno R2/R4
-  //1.25
-  [   6,  3.5,    7,  -50,      3,      2,    8,     8,     2,          5,    5,    5,    15,   10,    20,     2], //Chicago Steno R2/R4
-  [   6,  3.5,    7,  -50,      3,    2.5,    8,    20,     3,          2,  4.2,    8,     0,    8,     8,     3], //Chicago Steno R3 flat
-  //1.50
-  [   6,  3.5,    7,  -50,      3,      2,    8,     8,     2,          5,    5,    5,    15,   10,    20,     2], //Chicago Steno R2/R4
-  [   6,  3.5,    7,  -50,      3,    2.5,    8,    20,     3,          2,  4.2,    8,     0,    8,     8,     3], //Chicago Steno R3 flat
-
-
-  [   6,  3.5,    7,  -50,      3,      2,    8,     8,     2,          5,    5,    5,    15,   10,    20,     2], //Chicago Steno R1
-  [   6,  3.5,    7,  -50,      3,      2,    8,     8,     2,          5,    5,    5,    15,   10,    20,     2], //Chicago Steno R1
-  [   6,  3.5,    7,  -50,      3,      2,    8,     8,     2,          5,    5,    5,    15,   10,    20,     2], //Chicago Steno R1
-
+  [ 6.9,  3.6,    7,  -50,      4,    2.5,  9.5,  20.5,     3,        2.9,  4.3,    8,     0,  9.5,  8.5,     3], //Chicago Steno Thumb MX 1.5
 ];
 function BottomWidth(keyID)  = keyParameters[keyID][0];  //
 function BottomLength(keyID) = keyParameters[keyID][1];  //
