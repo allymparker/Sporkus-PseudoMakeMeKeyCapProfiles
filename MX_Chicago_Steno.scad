@@ -11,7 +11,7 @@ use <skin.scad>
 
 /*Tester */
 keycap(
-  keyID  = 1, //change profile refer to KeyParameters Struct
+  keyID  = 0, //change profile refer to KeyParameters Struct
   cutLen = 0, //Don't change. for chopped caps
   Stem   = true, //tusn on shell and stems
   StemRot = 0, //change stem orientation by deg
@@ -20,7 +20,7 @@ keycap(
   Stab   = 0,
   visualizeDish = true, // turn on debug visual of Dish
   crossSection  = false, // center cut to check internal
-  homeDot = false, //turn on homedots
+  homeDot = true, //turn on homedots
   Legends = false
   );
 
@@ -75,7 +75,7 @@ dishParameters = //dishParameter[keyID][ParameterID]
 [
 //FFwd1 FFwd2    FPit1 FPit2  DshDep DshHDif FArcIn FArcFn FArcEx     BFwd1 BFwd2 BPit1 BPit2  BArcIn BArcFn BArcEx
   //Column 0
-  [ 5.4,    4.1,   17,   -60,     8,    2.05,   13.0,  17.5,   2,      5.4,   4.1,   2,  -30,  13.0,    15.5,    2], //Chicago Steno R2/R4
+  [ 5.4,    4.1,   17,   -60,     8,    2.05,   13.0,  17.5,   2,      5.4,   4.1,   5,  -30,  13.0,    15.5,    2], //Chicago Steno R2/R4
   [ 5.4,    4.1,    5,   -50,     8,    2.05,   12.5,  15.5,   2,      5.4,   4.1,   5,  -50,  12.5,    15.5,    2], //Chicago Steno R3 flat
 //  Later //1.25
 //  [ 4.5,    4,    7,  -40,      8,    1.8,   17,    20,     2,      4.5,    4,    2,   -35,   17,    20,     2], //Chicago Steno R2/R4
