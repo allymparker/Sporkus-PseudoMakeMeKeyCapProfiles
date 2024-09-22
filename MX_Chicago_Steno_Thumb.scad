@@ -9,14 +9,15 @@ use <skin.scad>
 // Choc Chord version Chicago Stenographer with sculpte Thumb cluter
 // change stemrot
 
-mirror([1,0,0])keycap(
+//mirror([1,0,0])
+keycap(
   keyID   = 1, //change profile refer to KeyParameters Struct
   cutLen  = 0, //Don't change. for chopped caps
   Stem    = true, //tusn on shell and stems
   StemRot = 0,//change stem orientation by deg
   Dish    = true, //turn on dish cut
   Stab    = 0,
-  visualizeDish = true, // turn on debug visual of Dish
+  visualizeDish = false, // turn on debug visual of Dish
   crossSection  = false, // center cut to check internal
   homeDot = false, //turn on homedots
   Legends = false
@@ -47,21 +48,21 @@ keyParameters = //keyParameters[KeyID][ParameterID]
 [
 //  BotWid, BotLen, TWDif, TLDif, keyh, WSft, LSft  XSkew, YSkew, ZSkew, WEx, LEx, CapR0i, CapR0f, CapR1i, CapR1f, CapREx, StemEx
     [18.00,  18.00,   5.6, 	   5,  5.0,    0,   .0,     0,    -0,    -0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //Chicago Steno Thumb MX
-    [18.00,  27.00,   5.6, 	   5,  5.0,    0,   .0,     0,    -0,    -0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //Chicago Steno Thumb MX 1.5
+    [18.00,  27.00,   5.6, 	   5,  5.0,    0,   .0,     3,    -0,    0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //Chicago Steno Thumb MX 1.5
 ];
 
 dishParameters = //dishParameter[keyID][ParameterID]
 [
 //FFwd1 FFwd2 FPit1 FPit2  DshDep DshHDif FArcIn FArcFn FArcEx     BFwd1 BFwd2 BPit1 BPit2  BArcIn BArcFn BArcEx FTani FTanf BTani BTanf TanEX PhiInit PhiFin
   [ 5.4,  4.1,    5,  -40,      8,    2.2, 12.5,  15.5,     2,      5.4,  4.1,    5,   -40, 12.5,  15.5,     2,     4,    5,    4,    5,   2, 200, 210], //Chicago Steno Thumb MX
-  [ 9.4,  8.1,    5,  -40,      8,    2.2, 12.5,  15.5,     2,      9.4,  8.1,    5,   -40, 12.5,  15.5,     2,     4,    5,    4,    5,   2, 200, 210],//Chicago Steno Thumb MX 1.5
+  [ 9.4,  8.1,    5,  -40,      8,    2.05, 12.5,  15.5,     2,     9.4,  8.1,    5,   -40, 12.5,  15.5,     2,     4,    5,    4,    5,   2, 200, 210],//Chicago Steno Thumb MX 1.5
 ];
 
 SecondaryDishParam =
 [
 //FFwd1 FFwd2 FPit1 FPit2  DshDep DshHDif FArcIn FArcFn FArcEx     BFwd1 BFwd2 BPit1 BPit2  BArcIn BArcFn BArcEx FTani FTanf BTani BTanf TanEX PhiInit PhiFin
   [ 6.9,  3.6,    7,  -50,      4,    2.5,  9.5,  20.5,     3,        2.9,  4.3,    8,     0,  9.5,  8.5,     3], //Chicago Steno Thumb MX
-  [ 6.9,  3.6,    7,  -50,      4,    2.5,  9.5,  20.5,     3,        2.9,  4.3,    8,     0,  9.5,  8.5,     3], //Chicago Steno Thumb MX 1.5
+  [ 6.9,  3.6,    7,  -50,      4,    2.35,  9.5,  20.5,     3,       2.9,  4.3,    8,     0,  9.5,  8.5,     3], //Chicago Steno Thumb MX 1.5
 ];
 function BottomWidth(keyID)  = keyParameters[keyID][0];  //
 function BottomLength(keyID) = keyParameters[keyID][1];  //
