@@ -14,11 +14,11 @@ keycap(
   keyID   = 1, //change profile refer to KeyParameters Struct
   cutLen  = 0, //Don't change. for chopped caps
   Stem    = true, //tusn on shell and stems
-  StemRot = 0,//change stem orientation by deg
+  StemRot = 90,//change stem orientation by deg
   Dish    = true, //turn on dish cut
   Stab    = 0,
   visualizeDish = false, // turn on debug visual of Dish
-  crossSection  = false, // center cut to check internal
+  crossSection  = true, // center cut to check internal
   homeDot = false, //turn on homedots
   Legends = false
 );
@@ -48,7 +48,7 @@ keyParameters = //keyParameters[KeyID][ParameterID]
 [
 //  BotWid, BotLen, TWDif, TLDif, keyh, WSft, LSft  XSkew, YSkew, ZSkew, WEx, LEx, CapR0i, CapR0f, CapR1i, CapR1f, CapREx, StemEx
     [18.00,  18.00,   5.6, 	   5,  5.0,    0,   .0,     0,    -0,    -0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //Chicago Steno Thumb MX
-    [18.00,  27.00,   5.6, 	   5,  5.0,    0,   .0,     3,    -0,    0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //Chicago Steno Thumb MX 1.5
+    [18.00,  27.00,   5.6, 	   5,  5,    0,   .0,     3,    -0,    0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //Chicago Steno Thumb MX 1.5
 ];
 
 dishParameters = //dishParameter[keyID][ParameterID]
@@ -250,8 +250,10 @@ function StemRotation(t, keyID) =
 
 function StemTransform(t, keyID) =
   [
-    pow(t/stemLayers, StemExponent(keyID))*(BottomWidth(keyID) -TopLenDiff(keyID)-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemWid - 2*slop),
-    pow(t/stemLayers, StemExponent(keyID))*(BottomLength(keyID)-TopLenDiff(keyID)-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemLen - 2*slop)
+    pow(t/stemLayers, StemExponent(keyID))*(27 -5-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemWid - 2*slop),
+    pow(t/stemLayers, StemExponent(keyID))*(18-5-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemLen - 2*slop)
+//    pow(t/stemLayers, StemExponent(keyID))*(BottomWidth(keyID) -TopLenDiff(keyID)-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemWid - 2*slop),
+//    pow(t/stemLayers, StemExponent(keyID))*(BottomLength(keyID)-TopLenDiff(keyID)-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemLen - 2*slop)
   ];
 
 function StemRadius(t, keyID) = pow(t/stemLayers,3)*3 + (1-pow(t/stemLayers, 3))*1;
@@ -350,7 +352,7 @@ module keycap(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false
      }
    }
      if(crossSection == true) {
-       translate([0,-25,-.1])cube([15,50,15]);
+       translate([0,-25,-50])cube([30,50,100]);
      }
   }
   //Homing dot
