@@ -50,14 +50,14 @@ draftAngle = 0; //degree  note:Stem Only
 keyParameters = //keyParameters[KeyID][ParameterID]
 [
 //  BotWid, BotLen, TWDif, TLDif, keyh, WSft, LSft  XSkew, YSkew, ZSkew, WEx, LEx, CapR0i, CapR0f, CapR1i, CapR1f, CapREx, StemEx
-    [18.00,  18.00,   5.6, 	   5,  5.4,    0,   .0,     5,    -0,    -0,   2, 2.5,    .10,      2,     .10,      3,     2,       2], //Chicago Steno R2/R4
-    [18.00,  18.00,   5.6, 	   5,  5.0,    0,   .0,     0,    -0,    -0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //Chicago Steno R3 flat
+    [18.00,  18.00,   5.6,     5,  5.4,    0,   .0,     5,    -0,    -0,   2, 2.5,    .10,      2,     .10,      3,     2,       2], //Chicago Steno R2/R4
+    [18.00,  18.00,   5.6,     5,  5.0,    0,   .0,     0,    -0,    -0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //Chicago Steno R3 flat
 ];
 
 dishParameters = //dishParameter[keyID][ParameterID]
 [
 //  FFwd1 FFwd2  FPit1  FPit2  DshDep  DshHDif   FArcIn FArcFn FArcEx     BFwd1 BFwd2 BPit1 BPit2  BArcIn BArcFn BArcEx
-  [ 5.4,    4.1,   17,   -60,       8,    2.05,   13.0,  17.5,     2,      5.4,   4.1,   5,  -30,  13.0,    15.5,    2], //Chicago Steno R2/R4
+  [ 5.4,    4.1,   17,   -60,       8,    2.05,   13.0,  17.5,     2,      5.4,   4.1,   5.2,  -30,  13.0,    15.5,    2], //Chicago Steno R2/R4
   [ 5.4,    4.1,    5,   -50,       8,    2.05,   12.5,  15.5,     2,      5.4,   4.1,   5,  -50,  12.5,    15.5,    2], //Chicago Steno R3 flat
 ];
 
