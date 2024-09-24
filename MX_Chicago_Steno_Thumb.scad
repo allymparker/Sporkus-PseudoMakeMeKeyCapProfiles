@@ -18,7 +18,7 @@ keycap(
   Dish    = true, //turn on dish cut
   Stab    = 0,
   visualizeDish = false, // turn on debug visual of Dish
-  crossSection  = true, // center cut to check internal
+  crossSection  = false, // center cut to check internal
   homeDot = false, //turn on homedots
   Legends = false
 );
@@ -55,14 +55,14 @@ dishParameters = //dishParameter[keyID][ParameterID]
 [
 //FFwd1 FFwd2 FPit1 FPit2  DshDep DshHDif FArcIn FArcFn FArcEx     BFwd1 BFwd2 BPit1 BPit2  BArcIn BArcFn BArcEx FTani FTanf BTani BTanf TanEX PhiInit PhiFin
   [ 5.4,  4.1,    5,  -40,      8,    2.2, 12.5,  15.5,     2,      5.4,  4.1,    5,   -40, 12.5,  15.5,     2,     4,    5,    4,    5,   2, 200, 210], //Chicago Steno Thumb MX
-  [ 9.4,  8.1,    5,  -40,      8,    2.05, 12.5,  15.5,     2,     9.4,  8.1,    5,   -40, 12.5,  15.5,     2,     4,    5,    4,    5,   2, 200, 210],//Chicago Steno Thumb MX 1.5
+  [ 9.4,  8.1,    5,  -40,      8,    1.95, 12.5,  15.5,     2,     9.4,  8.1,    5,   -40, 12.5,  15.5,     2,     4,    5,    4,    5,   2, 200, 210],//Chicago Steno Thumb MX 1.5
 ];
 
 SecondaryDishParam =
 [
 //FFwd1 FFwd2 FPit1 FPit2  DshDep DshHDif FArcIn FArcFn FArcEx     BFwd1 BFwd2 BPit1 BPit2  BArcIn BArcFn BArcEx FTani FTanf BTani BTanf TanEX PhiInit PhiFin
   [ 6.9,  3.6,    7,  -50,      4,    2.5,  9.5,  20.5,     3,        2.9,  4.3,    8,     0,  9.5,  8.5,     3], //Chicago Steno Thumb MX
-  [ 6.9,  3.6,    7,  -50,      4,    2.35,  9.5,  20.5,     3,       2.9,  4.3,    8,     0,  9.5,  8.5,     3], //Chicago Steno Thumb MX 1.5
+  [ 6.9,  3.6,    7,  -50,      4,    2.25,  9.5,  20.5,     3,       2.9,  4.3,    8,     0,  9.5,  8.5,     3], //Chicago Steno Thumb MX 1.5
 ];
 function BottomWidth(keyID)  = keyParameters[keyID][0];  //
 function BottomLength(keyID) = keyParameters[keyID][1];  //
