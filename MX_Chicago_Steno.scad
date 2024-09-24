@@ -261,7 +261,7 @@ module keycap(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false
      }
    }
      if(crossSection == true) {
-       translate([0,-25,-.1])cube([15,50,15]);
+       translate([0,-25,-50])cube([30,50,100]);
      }
   }
   //Homing dot
