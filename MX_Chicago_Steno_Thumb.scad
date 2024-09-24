@@ -47,8 +47,8 @@ draftAngle = 0; //degree  note:Stem Only
 keyParameters = //keyParameters[KeyID][ParameterID]
 [
 //  BotWid, BotLen, TWDif, TLDif, keyh, WSft, LSft  XSkew, YSkew, ZSkew, WEx, LEx, CapR0i, CapR0f, CapR1i, CapR1f, CapREx, StemEx
-    [18.00,  18.00,   5.6, 	   5,  5.0,    0,   .0,     0,    -0,    -0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //Chicago Steno Thumb MX
-    [18.00,  27.00,   5.6, 	   5,  5,    0,   .0,     3,    -0,    0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //Chicago Steno Thumb MX 1.5
+    [18.00,  18.00,   5.6, 	   5,  5.0,    0,   .0,     0,    -0,     0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //Chicago Steno Thumb MX
+    [18.00,  27.00,   5.6, 	   5,  5.0,    0,   .0,     3,    -0,     0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //Chicago Steno Thumb MX 1.5
 ];
 
 dishParameters = //dishParameter[keyID][ParameterID]
