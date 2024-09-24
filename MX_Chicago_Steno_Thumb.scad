@@ -11,10 +11,10 @@ use <skin.scad>
 
 //mirror([1,0,0])
 keycap(
-  keyID   = 1, //change profile refer to KeyParameters Struct
+  keyID   = 0, //change profile refer to KeyParameters Struct
   cutLen  = 0, //Don't change. for chopped caps
   Stem    = true, //tusn on shell and stems
-  StemRot = 90,//change stem orientation by deg
+  StemRot = 0,//change stem orientation by deg
   Dish    = true, //turn on dish cut
   Stab    = 0,
   visualizeDish = false, // turn on debug visual of Dish
@@ -54,7 +54,7 @@ keyParameters = //keyParameters[KeyID][ParameterID]
 dishParameters = //dishParameter[keyID][ParameterID]
 [
 //FFwd1 FFwd2 FPit1 FPit2  DshDep DshHDif FArcIn FArcFn FArcEx     BFwd1 BFwd2 BPit1 BPit2  BArcIn BArcFn BArcEx FTani FTanf BTani BTanf TanEX PhiInit PhiFin
-  [ 5.4,  4.1,    5,  -40,      8,    2.2, 12.5,  15.5,     2,      5.4,  4.1,    5,   -40, 12.5,  15.5,     2,     4,    5,    4,    5,   2, 200, 210], //Chicago Steno Thumb MX
+  [ 5.4,  4.1,    5,  -40,      8,    2.1, 12.5,  15.5,     2,      5.4,  4.1,    5,   -40, 12.5,  15.5,     2,     4,    5,    4,    5,   2, 200, 210], //Chicago Steno Thumb MX
   [ 9.4,  8.1,    5,  -40,      8,    1.95, 12.5,  15.5,     2,     9.4,  8.1,    5,   -40, 12.5,  15.5,     2,     4,    5,    4,    5,   2, 200, 210],//Chicago Steno Thumb MX 1.5
 ];
 
