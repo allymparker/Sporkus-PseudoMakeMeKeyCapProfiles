@@ -11,16 +11,16 @@ use <skin.scad>
 
 /*Tester */
 keycap(
-  keyID  = 0, //change profile refer to KeyParameters Struct
+  keyID  = 1, //change profile refer to KeyParameters Struct
   cutLen = 0, //Don't change. for chopped caps
   Stem   = true, //tusn on shell and stems
   StemRot = 0, //change stem orientation by deg
   Dish   = true, //turn on dish cut
   Shell = true,
   Stab   = 0,
-  visualizeDish = true, // turn on debug visual of Dish
+  visualizeDish = false, // turn on debug visual of Dish
   crossSection  = false, // center cut to check internal
-  homeDot = true, //turn on homedots
+  homeDot = false, //turn on homedots
   Legends = false
   );
 
@@ -275,7 +275,7 @@ module keycap(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false
 $fn = fn;
 
 module choc_stem(draftAng = 5) {
-  stemHeight = 3.87;
+  stemHeight = 3.75;
   dia = .15;
   wids = 1.2/2;
   lens = 2.9/2;

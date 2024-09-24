@@ -61,7 +61,7 @@ dishParameters = //dishParameter[keyID][ParameterID]
 SecondaryDishParam =
 [
 //FFwd1 FFwd2 FPit1 FPit2  DshDep DshHDif FArcIn FArcFn FArcEx     BFwd1 BFwd2 BPit1 BPit2  BArcIn BArcFn BArcEx FTani FTanf BTani BTanf TanEX PhiInit PhiFin
-  [ 6.9,  3.6,    7,  -50,      4,    2.5,  9.5,  20.5,     3,        2.9,  4.3,    8,     0,  9.5,  8.5,     3], //Chicago Steno Thumb MX
+  [ 6.9,  3.6,    7,  -50,      4,    2.4,  9.5,  20.5,     3,        2.9,  4.3,    8,     0,  9.5,  8.5,     3], //Chicago Steno Thumb MX
   [ 6.9,  3.6,    7,  -50,      4,    2.25,  9.5,  20.5,     3,       2.9,  4.3,    8,     0,  9.5,  8.5,     3], //Chicago Steno Thumb MX 1.5
 ];
 function BottomWidth(keyID)  = keyParameters[keyID][0];  //
@@ -250,10 +250,10 @@ function StemRotation(t, keyID) =
 
 function StemTransform(t, keyID) =
   [
-    pow(t/stemLayers, StemExponent(keyID))*(27 -5-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemWid - 2*slop),
-    pow(t/stemLayers, StemExponent(keyID))*(18-5-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemLen - 2*slop)
-//    pow(t/stemLayers, StemExponent(keyID))*(BottomWidth(keyID) -TopLenDiff(keyID)-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemWid - 2*slop),
-//    pow(t/stemLayers, StemExponent(keyID))*(BottomLength(keyID)-TopLenDiff(keyID)-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemLen - 2*slop)
+//    pow(t/stemLayers, StemExponent(keyID))*(27 -5-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemWid - 2*slop),
+//    pow(t/stemLayers, StemExponent(keyID))*(18-5-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemLen - 2*slop)
+    pow(t/stemLayers, StemExponent(keyID))*(BottomWidth(keyID) -TopLenDiff(keyID)-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemWid - 2*slop),
+    pow(t/stemLayers, StemExponent(keyID))*(BottomLength(keyID)-TopLenDiff(keyID)-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemLen - 2*slop)
   ];
 
 function StemRadius(t, keyID) = pow(t/stemLayers,3)*3 + (1-pow(t/stemLayers, 3))*1;
@@ -406,7 +406,7 @@ module cherry_stem(depth, slop) {
 
 
 module choc_stem(draftAng = 5) {
-  stemHeight = 3.85;
+  stemHeight = 3.75;
   dia = .15;
   wids = 1.2/2;
   lens = 2.9/2;
