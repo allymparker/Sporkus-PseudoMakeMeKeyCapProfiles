@@ -7,9 +7,6 @@ use <sweep.scad>
 use <skin.scad>
 //use <z-butt.scad>
 // Choc Chord version Chicago Stenographer with sculpte Thumb cluter
-// change stemrot
-
-//mirror([1,0,0])
 keycap(
   keyID   = 1, //change profile refer to KeyParameters Struct
   cutLen  = 0, //Don't change. for chopped caps
@@ -42,7 +39,6 @@ stemLayers = 50; //resolution of stem to cap top transition
 
 //injection param
 draftAngle = 0; //degree  note:Stem Only
-//TODO: Add wall thickness transition?
 
 keyParameters = //keyParameters[KeyID][ParameterID]
 [
@@ -282,8 +278,6 @@ module keycap(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false
     , r = FTanRadius(i, keyID))) ];
   BackCurve  = [ for(i=[0:len(BackPath)-1])  transform(BackPath[i],  DishShape2(DishDepth(keyID), BackDishArc(i), phi = TransitionAngleInit(keyID), theta= 60
     , r = BTanRadius(i, keyID))) ];
-//  for(i=[0:len(FrontPath)-1])echo ( len(transform(FrontPath[i], DishShape2( a= DishDepth(keyID), b= FrontDishArc(i), phi = TransitionAngleInit(keyID), theta= 60
-//    , r = FTanRadius(i, keyID)))), TanTransition(i, keyID));
 
   //Secondary Dish
   SFrontPath = quantize_trajectories(SFrontTrajectory(keyID), steps = stepsize, loop=false, start_position= $t*4);
@@ -344,11 +338,6 @@ module keycap(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false
      if(SecondaryDish == true){
        #translate([BottomWidth(keyID)/2,-BottomLength(keyID)/2,KeyHeight(keyID)-SDishHeightDif(keyID)])rotate([0,-YAngleSkew(keyID),0])rotate([0,-90-XAngleSkew(keyID),270-ZAngleSkew(keyID)])skin(SBackCurve);
        mirror([1,0,0])translate([BottomWidth(keyID)/2,-BottomLength(keyID)/2,KeyHeight(keyID)-SDishHeightDif(keyID)])rotate([0,-YAngleSkew(keyID),0])rotate([0,-90-XAngleSkew(keyID),270-ZAngleSkew(keyID)])skin(SBackCurve);
-//       translate([BottomWidth(keyID)/2,-BottomLength(keyID)/2,KeyHeight(keyID)-SDishHeightDif(keyID)])rotate([0,-YAngleSkew(keyID),0])rotate([0,-90+XAngleSkew(keyID),90-ZAngleSkew(keyID)])skin(SFrontCurve);
-//
-//       rotate([0,0,180])translate([BottomWidth(keyID)/2,-BottomLength(keyID)/2,KeyHeight(keyID)-SDishHeightDif(keyID)])rotate([0,-YAngleSkew(keyID),0])rotate([0,-90-XAngleSkew(keyID),270-ZAngleSkew(keyID)])skin(SBackCurve);
-
-//       rotate([0,0,180])translate([BottomWidth(keyID)/2,-BottomLength(keyID)/2,KeyHeight(keyID)-SDishHeightDif(keyID)])rotate([0,-YAngleSkew(keyID),0])rotate([0,-90+XAngleSkew(keyID),90-ZAngleSkew(keyID)])skin(SFrontCurve);
      }
    }
      if(crossSection == true) {
@@ -361,49 +350,6 @@ module keycap(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false
 
 //------------------stems
 $fn = fn;
-
-function outer_cherry_stem(slop) = [ stemWid - slop * 2, stemLen - slop * 2];
-function outer_cherry_stabilizer_stem(slop) = [4.85 - slop * 2, 6.05 - slop * 2];
-function outer_box_cherry_stem(slop) = [6 - slop, 6 - slop];
-
-// .005 purely for aesthetics, to get rid of that ugly crosshatch
-function cherry_cross(slop, extra_vertical = 0) = [
-  // horizontal tine
-  [4.03 + slop, 1.15 + slop / 3],
-  // vertical tine
-  [1.25 + slop / 3, 4.23 + extra_vertical + slop / 3 + .005],
-];
-module inside_cherry_cross(slop) {
-  // inside cross
-  // translation purely for aesthetic purposes, to get rid of that awful lattice
-  translate([0,0,-0.005]) {
-    linear_extrude(height = stemCrossHeight) {
-      square(cherry_cross(slop, extra_vertical)[0], center=true);
-      square(cherry_cross(slop, extra_vertical)[1], center=true);
-    }
-  }
-
-  // Guides to assist insertion and mitigate first layer squishing
-  {
-    for (i = cherry_cross(slop, extra_vertical)) hull() {
-      linear_extrude(height = 0.01, center = false) offset(delta = 0.4) square(i, center=true);
-      translate([0, 0, 0.5]) linear_extrude(height = 0.01, center = false)  square(i, center=true);
-    }
-  }
-}
-
-module cherry_stem(depth, slop) {
-  difference(){
-    // outside shape
-    linear_extrude(height = depth) {
-      offset(r=1){
-        square(outer_cherry_stem(slop) - [2,2], center=true);
-      }
-    }
-    inside_cherry_cross(slop);
-  }
-}
-
 
 module choc_stem(draftAng = 5) {
   stemHeight = 3.75;
@@ -485,44 +431,3 @@ lp_key = [
      "cavity_ch_xy", 1.6,
      "indent_inset", 1.5
      ];
-
-/*Tester */
-//translate([0,0,0])lp_master_base(xu = 2, yu = 1 );
-// lp_production_base();
-//      for(i = [0:2]){
-//        for(j = [0:1]){
-//          translate([(1-i)*21, (.5-j)*21,0]){
-//            translate([0, 0, -.05])rotate([0,0,0])mirror([0,j,0])keycap(keyID = 2, cutLen = 0, Stem =false,  Dish = true, SecondaryDish = false ,Stab = 0 , visualizeDish = false, crossSection = false, homeDot = false, Legends = false);
-//          }
-//        }
-//      }
-//
-//   lp_production_base15();
-//      for(i = [0:1]){
-//        for(j = [0:1]){
-//            translate([(.75-i*1.5)*21, (.5-j)*21,0]){
-//            translate([0, 0, -.05])rotate([0,0,90])mirror([j,0,0])keycap(keyID = 3, cutLen = 0, Stem =false,  Dish = true, SecondaryDish = false ,Stab = 0 , visualizeDish = false, crossSection = false, homeDot = false, Legends = false);
-//          }
-//        }
-//      }
-
-//translate([-19, 3.5, -.05])rotate([0,0,10])mirror([0,0,0])keycap(keyID = 3, cutLen = 0, Stem =false,  Dish = true, SecondaryDish = false ,Stab = 0 , visualizeDish = false, crossSection = false, homeDot = false, Legends = false);
-//translate([0, -17, 0])rotate([0,0,0])mirror([0,0,0])keycap(keyID = 0, cutLen = 0, Stem =false,  Dish = true, SecondaryDish = false ,Stab = 0 , visualizeDish = false, crossSection = false, homeDot = false, Legends = false);
-
-//translate([0, 34, 0])rotate([0,0,0])mirror([0,1,0])keycap(keyID = 7, cutLen = 0, Stem =true,  Dish = true, SecondaryDish = false ,Stab = 0 , visualizeDish = false, crossSection = false, homeDot = false, Legends = false);
-//translate([0, -17, 0])rotate([0,0,0])mirror([0,0,0])keycap(keyID = 0, cutLen = 0, Stem =true,  Dish = true, SecondaryDish = false ,Stab = 0 , visualizeDish = false, crossSection = false, homeDot = false, Legends = false);
-
-
-//translate([-3, 0, 0])rotate([0,0,0])mirror([0,0,0])keycap(keyID = 2, cutLen = 7, Stem =true,  Dish = true, SecondaryDish = false ,Stab = 0 , visualizeDish = false, crossSection = false, homeDot = false, Legends = false);
-//translate([3, 0, 0])rotate([0,0,0])mirror([0,0,0])keycap(keyID =  3, cutLen = -7, Stem =true,  Dish = true, SecondaryDish = false ,Stab = 0 , visualizeDish = false, crossSection = false, homeDot = false, Legends = false);
-//translate([0, 18, 0])rotate([0,0,0])mirror([0,0,0])keycap(keyID =  4, cutLen = 0, Stem =true,  Dish = true, SecondaryDish = false ,Stab = 0 , visualizeDish = false, crossSection = false, homeDot = false, Legends = false);
-
-//  translate([0,-17.5, 0])rotate([0,0,0])mirror([0,1,0])keycap(keyID = 1, cutLen = -ChocCut, Stem =true,  Dish = true, SecondaryDish = true ,Stab = 0 , visualizeDish = false, crossSection = false, homeDot = false, Legends = false);
-//
-//  translate([18,-17.5, 0])rotate([0,0,180])mirror([0,0,0])keycap(keyID = 1, cutLen = -ChocCut, Stem =true,  Dish = true, SecondaryDish = true ,Stab = 0 , visualizeDish = false, crossSection = false, homeDot = false, Legends = false);
-//  translate([18, 0, 0])rotate([0,0,180])mirror([0,1,0])keycap(keyID = 1, cutLen = -ChocCut, Stem =true,  Dish = true, SecondaryDish = true ,Stab = 0 , visualizeDish = false, crossSection = false, homeDot = true, Legends = false);
-//
-
-//#translate([0,17,0])cube([14.5, 13.5, 4], center = true); // internal check
-//#translate([0,0,5])cube([19.05, 19.05, 10], center = true); // internal check
-//#translate([0,0,0])cube([17.5, 16.5, 10], center = true); // internal check
