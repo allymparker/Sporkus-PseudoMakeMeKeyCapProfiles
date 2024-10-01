@@ -277,20 +277,21 @@ $fn = fn;
 module choc_stem(draftAng = 5) {
   stemHeight = 3.75;
   dia = .15;
-  wids = 1.2/2;
-  lens = 2.9/2;
+  wids = (1.3-dia)/2;
+  lens = (3.0-dia)/2;
   module Stem() {
     difference(){
       translate([0,0,-stemHeight/2])linear_extrude(height = stemHeight)hull(){
-        translate([wids-dia,-3/2])circle(d=dia);
-        translate([-wids+dia,-3/2])circle(d=dia);
-        translate([wids-dia, 3/2])circle(d=dia);
-        translate([-wids+dia, 3/2])circle(d=dia);
+        translate([wids,-lens])circle(d=dia);
+        translate([-wids,-lens])circle(d=dia);
+        translate([wids, lens])circle(d=dia);
+        translate([-wids, lens])circle(d=dia);
       }
 
     //cuts
-      translate([3.9,0])cylinder(d1=7+sin(draftAng)*stemHeight, d2=7,stemHeight, center = true, $fn = 64);
-      translate([-3.9,0])cylinder(d1=7+sin(draftAng)*stemHeight,d2=7,stemHeight, center = true, $fn = 64);
+      cutSpace=4.0;
+      translate([cutSpace,0])cylinder(d1=7+sin(draftAng)*stemHeight, d2=7,stemHeight, center = true, $fn = 64);
+      translate([-cutSpace,0])cylinder(d1=7+sin(draftAng)*stemHeight,d2=7,stemHeight, center = true, $fn = 64);
     }
   }
 
