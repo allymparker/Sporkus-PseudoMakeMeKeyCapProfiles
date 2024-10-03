@@ -292,7 +292,7 @@ module keycap(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false
   //builds
   difference(){
     union(){
-      difference(){
+      %difference(){
         skin([for (i=[0:layers-1]) transform(translation(CapTranslation(i, keyID)) * rotation(CapRotation(i, keyID)), elliptical_rectangle(CapTransform(i, keyID), b = CapRoundness(i,keyID),fn=fn))]); //outer shell
 
         //Cut inner shell
@@ -307,7 +307,7 @@ module keycap(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false
             translate([Stab/2,0,0])rotate([0,0,StemRot])cherry_stem(KeyHeight(keyID), slop);
             translate([-Stab/2,0,0])rotate([0,0,StemRot])cherry_stem(KeyHeight(keyID), slop);
           }
-          translate([0,0,-.001])skin([for (i=[0:stemLayers-1]) transform(translation(StemTranslation(i,keyID)), rounded_rectangle_profile(StemTransform(i, keyID),fn=fn,r=1 /*StemRadius(i, keyID) */ ))]); //outer shell
+          translate([0,0,-.001])skin([for (i=[0:stemLayers-1]) transform(translation(StemTranslation(i,keyID))*rotation(StemRotation(i, keyID)), rounded_rectangle_profile(StemTransform(i, keyID),fn=fn,r=1 /*StemRadius(i, keyID) */ ))]); //outer shell
        }
 
      }
